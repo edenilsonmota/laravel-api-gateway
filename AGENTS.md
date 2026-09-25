@@ -98,6 +98,25 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 - Prefer PHPDoc blocks over inline comments. Only add inline comments for exceptionally complex logic.
 - Use array shape type definitions in PHPDoc blocks.
 
+### Monetary values
+
+- The system initially supports only **BRL (Brazilian Real)**.
+- All monetary values must be stored and manipulated as **integer cents**.
+- Never use `float` or `double` for monetary values.
+- Monetary fields should explicitly use the `_cents` suffix whenever applicable.
+- Examples:
+  - `100` = R$ 1,00
+  - `1050` = R$ 10,50
+  - `15990` = R$ 159,90
+- Prefer names such as:
+  - `amount_cents`
+  - `fee_cents`
+  - `refund_amount_cents`
+- Convert user-facing decimal values to cents before persistence.
+- Convert cents to formatted BRL values only in the presentation layer.
+- When applicable, use `currency = BRL`.
+- Do not introduce multi-currency support unless explicitly requested.
+
 === deployments rules ===
 
 # Deployment
